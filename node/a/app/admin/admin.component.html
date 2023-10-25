@@ -1,0 +1,73 @@
+
+<div style="padding: 20px; border: 1px solid #ccc; background-color: #f5f5f5; border-radius: 5px; box-shadow: 2px 2px 5px #888;">
+  <h2 style="margin-bottom: 20px; color: #0099cc;">Course List</h2>
+  
+  <form (ngSubmit)="addCourse()">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <label for="courseName" style="font-weight: bold; width: 120px;">Course Name:</label>
+        <input type="text" id="courseName" name="courseName" [(ngModel)]="newCourse.courseName" required>
+      </div>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <label for="category" style="font-weight: bold; width: 120px;">Category:</label>
+        <input type="text" id="category" name="category" [(ngModel)]="newCourse.category" required>
+      </div>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <label for="level" style="font-weight: bold; width: 120px;">Level:</label>
+        <input type="text" id="level" name="level" [(ngModel)]="newCourse.level" required>
+      </div>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <label for="language" style="font-weight: bold; width: 120px;">Language:</label>
+        <input type="text" id="language" name="language" [(ngModel)]="newCourse.language" required>
+      </div>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <label for="duration" style="font-weight: bold; width: 120px;">Duration:</label>
+        <input type="text" id="duration" name="duration" [(ngModel)]="newCourse.duration" required>
+      </div>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <label for="cost" style="font-weight: bold; width: 120px;">Cost:</label>
+        <input type="text" id="cost" name="cost" [(ngModel)]="newCourse.cost" required>
+      </div>
+      <div style="display: flex; flex-direction: row; align-items: center;">
+        <label for="rating" style="font-weight: bold; width: 120px;">Rating:</label>
+        <input type="text" id="rating" name="rating" [(ngModel)]="newCourse.rating" required>
+      </div>
+    </div>
+    <br>
+    <button type="submit" style="background-color: #0099cc; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Add Course</button>
+  </form> <br>
+  <table style="width: 100%;">
+    <tr>
+      <th style="background-color: #0099cc; color: #fff; padding: 10px;">Course Name</th>
+      <th style="background-color: #0099cc; color: #fff; padding: 10px;">Category</th>
+      <th style="background-color: #0099cc; color: #fff; padding: 10px;">Level</th>
+      <th style="background-color: #0099cc; color: #fff; padding: 10px;">Language</th>
+      <th style="background-color: #0099cc; color: #fff; padding: 10px;">Duration</th>
+      <th style="background-color: #0099cc; color: #fff; padding: 10px;">Cost</th>
+      <th style="background-color: #0099cc; color: #fff; padding: 10px;">Rating</th>
+    </tr>
+    <tr *ngFor="let course of allCourses">
+      <td style="padding: 10px;">{{ course.courseName }}</td>
+      <td style="padding: 10px;">{{ course.category }}</td>
+      <td style="padding: 10px;">{{ course.level }}</td>
+      <td style="padding: 10px;">{{ course.language }}</td>
+      <td style="padding: 10px;">{{ course.duration }}</td>
+      <td style="padding: 10px;">{{ course.cost }}</td>
+      <td style="padding: 10px;">{{ course.rating }}</td>
+    </tr>
+  </table>
+</div>
+
+
+<div class="user-list-container">
+  <h2 class="user-list-title">Users enrolled courses</h2>
+  <ul class="user-list">
+    <li *ngFor="let user of allUSersCOurse" class="user-item">
+      <strong class="user-name-label">Name:</strong> {{ user.name }}<br>
+      <strong class="user-courses-label">Courses:</strong>
+      <ul class="course-list">
+        <li *ngFor="let course of user.course">{{ course }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

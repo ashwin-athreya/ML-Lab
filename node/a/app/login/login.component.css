@@ -1,0 +1,12 @@
+.login-form {
+    margin: auto;
+    background-color: aquamarine;
+    margin-top: 15%;
+    margin-left: 15%;
+    margin-right: 50%;
+    margin-bottom: 5%;
+    border: 1px solid black;
+}
+.login-text {
+    padding: 10%;
+}
